@@ -1,4 +1,4 @@
-package br.com.raphaeloliveira.bank.adapters.out.datasource
+package br.com.raphaeloliveira.bank.adapters.out.datasource.memory
 
 import br.com.raphaeloliveira.bank.domain.models.Transaction
 import br.com.raphaeloliveira.bank.domain.ports.out.TransactionsDatasourcePort
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service
 import java.time.LocalDate
 
 @Service
-class TransactionsDatasource: TransactionsDatasourcePort {
+class TransactionsDatasourceAdapter: TransactionsDatasourcePort {
 
     override fun saveTransaction(transaction: Transaction) =
         TransactionsTable.insert(TransactionRow.build(transaction))

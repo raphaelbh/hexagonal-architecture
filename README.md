@@ -18,41 +18,36 @@ The hexagonal architecture, or ports and adapters architecture, is an architectu
 https://medium.com/ssense-tech/hexagonal-architecture-there-are-always-two-sides-to-every-story-bc0780ed7d9c
 
 
-## Use cases
-
-### Save user transaction
-**Business Rules (Domain)**
-- Required input parameters: user, amount, description
-- Persist transaction
-- Notify user (email)
-
-### Get user transactions
-**Business Rules (Domain)**
-- Required input parameters: user
-- Optional input parameters: date
-- When no date informed, returns transactions for the current date
-- When date informed, returns transactions from the informed date
-- Output: list of transactions (id, user, date time, amount, description)
+## Requirements
+- docker: https://www.docker.com/
+- awscli: https://aws.amazon.com/cli/
+- JDK 11: https://jdk.java.net/11/
+- gradle: https://gradle.org/
 
 
-### Adapters
+## Setup
 
-**Primary (IN)**
-- http (web)
+1. Run localstack
 
-**Secondary (OUT)**
-- Persistence transaction
-- Send e-mail
+`$ docker run -p 8000:8000 amazon/dynamodb-local`
+
+2. Create table
+
+`$ CREATE_TABLE_COMMAND`
+
+3. Run application
+
+`$ (cd app && rm -R build && ./gradlew build)`
+
+`$ java -jar ./app/build/libs/bank-0.0.1-SNAPSHOT.jar`
 
 
-## Project Structure
+## Running
 
-```
-- domain
---- models
---- services
---- ports
-- adapters
---- in (primary)
---- out (secondary)
-```
+1. Create transaction
+
+`$ curl -d '{"user":"john", "amount":99.99, "description": "Transfer"}' -H "Content-Type: application/json" -X POST http://localhost:8080/transactions`
+
+2. Get transactions
+
+`$ curl http://localhost:8080/transactions?user=john -H "Accept: application/json"`

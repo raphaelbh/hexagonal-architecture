@@ -1,4 +1,4 @@
-package br.com.raphaeloliveira.bank.adapters.out.datasource
+package br.com.raphaeloliveira.bank.adapters.out.datasource.memory
 
 import br.com.raphaeloliveira.bank.domain.models.Transaction
 import java.time.LocalDate

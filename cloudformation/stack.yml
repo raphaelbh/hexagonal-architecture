@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Resources:
+  TransactionsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: Transactions
+      AttributeDefinitions: 
+        - AttributeName: user
+          AttributeType: S
+        - AttributeName: transaction_id
+          AttributeType: S
+      KeySchema: 
+        - AttributeName: user
+          KeyType: HASH
+        - AttributeName: transaction_id
+          KeyType: RANGE
