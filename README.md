@@ -27,7 +27,7 @@ https://medium.com/ssense-tech/hexagonal-architecture-there-are-always-two-sides
 
 ## Setup
 
-1. Start dynamodb-local container, create Transactions table and start app
+1. Start dynamodb-local container and create dynamodb table
 
 `$ ./utils/setup.sh`
 
