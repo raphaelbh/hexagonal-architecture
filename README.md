@@ -27,19 +27,13 @@ https://medium.com/ssense-tech/hexagonal-architecture-there-are-always-two-sides
 
 ## Setup
 
-1. Run localstack
+1. Start dynamodb-local container, create Transactions table and start app
 
-`$ docker run -p 8000:8000 amazon/dynamodb-local`
+`$ ./utils/setup.sh`
 
-2. Create table
+3. Start application
 
-`$ CREATE_TABLE_COMMAND`
-
-3. Run application
-
-`$ (cd app && rm -R build && ./gradlew build)`
-
-`$ java -jar ./app/build/libs/bank-0.0.1-SNAPSHOT.jar`
+`$ ./utils/start_app.sh`
 
 
 ## Running
