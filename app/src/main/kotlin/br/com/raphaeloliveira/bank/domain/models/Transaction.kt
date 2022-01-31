@@ -14,5 +14,11 @@ data class Transaction(
     companion object {
         fun build(command: SaveTransactionCommand) =
             Transaction(UUID.randomUUID().toString(), command.user, LocalDate.now(), command.amount, command.description)
+        fun build(map: Map<String, Any>) =
+            Transaction(map["id"] as String, map["user"] as String, map["date"] as LocalDate,
+                map["amount"] as Double, map["description"] as String)
     }
+
+    fun toMap(): Map<String, Any> =
+        mapOf("id" to id, "user" to user, "date" to date, "amount" to amount, "description" to description)
 }

@@ -8,9 +8,8 @@ import java.time.LocalDate
 @Service
 class TransactionsDatasourceAdapter: TransactionsDatasourcePort {
 
-    override fun saveTransaction(transaction: Transaction) =
-        TransactionsTable.insert(TransactionRow.build(transaction))
+    override fun saveTransaction(transaction: Transaction) = TransactionsTable.insert(transaction.toMap())
 
     override fun getTransactions(user: String, date: LocalDate) =
-        TransactionsTable.query(user, date).map { it ->  it.toTransactionDomain()}
+        TransactionsTable.query(user, date).map { it -> Transaction.build(it) }
 }
