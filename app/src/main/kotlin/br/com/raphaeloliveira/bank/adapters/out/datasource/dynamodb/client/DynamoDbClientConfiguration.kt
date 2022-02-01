@@ -16,6 +16,8 @@ class DynamoDbClientConfiguration(
     private val awsCredentialsProperties: AwsCredentialsProperties
 ) {
 
+    //https://docs.aws.amazon.com/sdk-for-kotlin/latest/developer-guide/home.html
+
     @Bean
     fun dynamoDbClient(): DynamoDbClient {
         return DynamoDbClient {
