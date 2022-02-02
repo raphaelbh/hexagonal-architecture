@@ -27,17 +27,13 @@ https://medium.com/ssense-tech/hexagonal-architecture-there-are-always-two-sides
 
 ## Setup
 
-1. Start infrastructure
-
-`$ docker-compose up -d`
-
-2. build application
+1. build application
 
 `$ (cd app && rm -f -r -- build && ./gradlew build)`
 
-3. Start application
+2. Start application
 
-`$ java -jar app/build/libs/bank-0.0.1-SNAPSHOT.jar`
+`$ docker-compose up -d`
 
 
 ## Testing

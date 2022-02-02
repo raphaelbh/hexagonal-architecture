@@ -9,3 +9,12 @@ services:
       - SERVICES=dynamodb
     volumes:
       - ./init-scripts:/docker-entrypoint-initaws.d
+  bank-app:
+    build: .
+    container_name: bank-app
+    ports:
+      - 8080:8080
+    depends_on:
+      - localstack
+    links:
+      - localstack
