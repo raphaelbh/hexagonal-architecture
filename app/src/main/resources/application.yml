@@ -4,10 +4,10 @@ spring:
 cloud:
   aws:
     credentials:
-      access-key: "local"
-      secret-key: "local"
+      access-key: localstack_access_key
+      secret-key: localstack_secret_key
     region:
-      static: "us-east-1"
+      static: us-east-1
   dynamodb:
-    endpoint: "http://localhost:8000"
-    region: "us-east-1"
+    endpoint: http://localhost:4566
+    region: us-east-1
