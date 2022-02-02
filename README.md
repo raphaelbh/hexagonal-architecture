@@ -21,19 +21,23 @@ https://medium.com/ssense-tech/hexagonal-architecture-there-are-always-two-sides
 ## Requirements
 - docker: https://www.docker.com/
 - awscli: https://aws.amazon.com/cli/
-- JDK 11: https://jdk.java.net/11/
+- jdk 11: https://jdk.java.net/11/
 - gradle: https://gradle.org/
 
 
 ## Setup
 
-1. Start dynamodb-local container, create Transactions table and start app
+1. Start infrastructure
 
-`$ ./utils/setup.sh`
+`$ docker-compose up -d`
+
+2. build application
+
+`$ (cd app && rm -f -r -- build && ./gradlew build)`
 
 3. Start application
 
-`$ ./utils/start_app.sh`
+`$ java -jar app/build/libs/bank-0.0.1-SNAPSHOT.jar`
 
 
 ## Running
