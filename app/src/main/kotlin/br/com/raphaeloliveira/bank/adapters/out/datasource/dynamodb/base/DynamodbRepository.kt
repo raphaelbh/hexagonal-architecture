@@ -37,13 +37,11 @@ abstract class DynamodbRepository: Dynamodb {
                       expressionAttributeValuesVal: Map<String, AttributeValue>): QueryResponse {
 
         var requestExpressionAttributeNamesVal = mutableMapOf("#partitionKey" to partitionKey())
-        if (expressionAttributeNamesVal != null)
-            requestExpressionAttributeNamesVal.putAll(expressionAttributeNamesVal)
+        requestExpressionAttributeNamesVal.putAll(expressionAttributeNamesVal)
 
         var requestExpressionAttributeValuesVal =
             mutableMapOf<String, AttributeValue>(":partitionKey" to AttributeValue.S(partitionKey))
-        if (expressionAttributeValuesVal != null)
-            requestExpressionAttributeValuesVal.putAll(expressionAttributeValuesVal)
+        requestExpressionAttributeValuesVal.putAll(expressionAttributeValuesVal)
 
         val request = QueryRequest {
             tableName = tableName()
