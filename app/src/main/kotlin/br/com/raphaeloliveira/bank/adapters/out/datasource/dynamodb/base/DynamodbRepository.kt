@@ -21,12 +21,38 @@ abstract class DynamodbRepository: Dynamodb {
     }
 
     suspend fun query(partitionKey: String): QueryResponse {
+
         val request = QueryRequest {
             tableName = tableName()
-            keyConditionExpression = "#partitionKey = :${partitionKey()}"
+            keyConditionExpression = "#partitionKey = :partitionKey"
             expressionAttributeNames = mutableMapOf("#partitionKey" to partitionKey())
-            this.expressionAttributeValues = mutableMapOf(":${partitionKey()}" to AttributeValue.S(partitionKey))
+            expressionAttributeValues = mutableMapOf(":partitionKey" to AttributeValue.S(partitionKey))
         }
+
+        return dynamoDbClient.query(request)
+    }
+
+    suspend fun query(partitionKey: String, filterExpressionVal: String,
+                      expressionAttributeNamesVal: Map<String, String>,
+                      expressionAttributeValuesVal: Map<String, AttributeValue>): QueryResponse {
+
+        var requestExpressionAttributeNamesVal = mutableMapOf("#partitionKey" to partitionKey())
+        if (expressionAttributeNamesVal != null)
+            requestExpressionAttributeNamesVal.putAll(expressionAttributeNamesVal)
+
+        var requestExpressionAttributeValuesVal =
+            mutableMapOf<String, AttributeValue>(":partitionKey" to AttributeValue.S(partitionKey))
+        if (expressionAttributeValuesVal != null)
+            requestExpressionAttributeValuesVal.putAll(expressionAttributeValuesVal)
+
+        val request = QueryRequest {
+            tableName = tableName()
+            keyConditionExpression = "#partitionKey = :partitionKey"
+            expressionAttributeNames = requestExpressionAttributeNamesVal
+            expressionAttributeValues = requestExpressionAttributeValuesVal
+            filterExpression = filterExpressionVal
+        }
+
         return dynamoDbClient.query(request)
     }
 }

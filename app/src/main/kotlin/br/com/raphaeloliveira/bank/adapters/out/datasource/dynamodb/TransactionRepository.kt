@@ -24,5 +24,8 @@ class TransactionRepository: DynamodbRepository() {
     }
 
     fun query(user: String, date: LocalDate): List<Map<String, AttributeValue>>? =
-        runBlocking { query(user) }.items
+        runBlocking {
+            query(user,"#date = :date", mapOf("#date" to "date"),
+                mapOf(":date" to AttributeValue.S(date.toString())))
+        }.items
 }
