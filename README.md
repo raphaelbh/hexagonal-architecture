@@ -20,10 +20,7 @@ https://medium.com/ssense-tech/hexagonal-architecture-there-are-always-two-sides
 
 ## Requirements
 - docker: https://www.docker.com/
-- awscli: https://aws.amazon.com/cli/
-- jdk 11: https://jdk.java.net/11/
-- gradle: https://gradle.org/
-
+- docker-compose: https://docs.docker.com/compose/
 
 ## Setup
 
