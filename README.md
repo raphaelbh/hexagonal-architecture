@@ -40,7 +40,7 @@ https://medium.com/ssense-tech/hexagonal-architecture-there-are-always-two-sides
 `$ java -jar app/build/libs/bank-0.0.1-SNAPSHOT.jar`
 
 
-## Running
+## Testing
 
 1. Create transaction
 
