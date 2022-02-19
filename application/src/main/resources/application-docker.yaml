@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: bank
+cloud:
+  aws:
+    credentials:
+      access-key: localstack
+      secret-key: localstack
+    region:
+      static: us-east-1
+  dynamodb:
+    endpoint: http://localstack:4566
+    region: us-east-1

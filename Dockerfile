@@ -1,3 +1,10 @@
 FROM openjdk:latest
-COPY app/build/libs/bank-0.0.1-SNAPSHOT.jar bank-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java","-jar","bank-0.0.1-SNAPSHOT.jar"]
+
+WORKDIR /application
+
+COPY ./application /application
+
+RUN ./gradlew clean build
+
+ENV SPRING_PROFILES_ACTIVE=docker
+CMD ["java", "-jar", "build/libs/bank-0.0.1-SNAPSHOT.jar"]

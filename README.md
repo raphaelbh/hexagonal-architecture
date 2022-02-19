@@ -1,15 +1,9 @@
-# Kotlin + Hexagonal Architecture
+# Hexagonal Architecture
 
-## Overview
+[![Project Status](https://img.shields.io/static/v1?label=project%20status&message=complete&color=success&style=flat-square)](#)
+[![GitHub License](https://img.shields.io/github/license/raphaelbh/readme-template?style=flat-square)](#)
 
-**Kotlin**
-
-A modern programming language that makes developers happier.
-
-https://kotlinlang.org/
-
-
-**Hexagonal Architecture**
+Hexagonal Architecture PoC
 
 ![alt text](assets/images/arch.png)
 
@@ -17,28 +11,39 @@ The hexagonal architecture, or ports and adapters architecture, is an architectu
 
 https://medium.com/ssense-tech/hexagonal-architecture-there-are-always-two-sides-to-every-story-bc0780ed7d9c
 
-
 ## Requirements
-- docker: https://www.docker.com/
-- docker-compose: https://docs.docker.com/compose/
 
-## Setup
+[![docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 
-1. build application
+## Installation
 
-`$ (cd app && rm -f -r -- build && ./gradlew build)`
+```bash
+$ docker-compose up -d
+```
+    
+## Usage
 
-2. Start application
+```bash
+$ curl -X POST 'http://localhost:8080/transactions' -H  'accept: application/json' -H  'Content-Type: application/json' -d '{"user":"john", "amount":99.99, "description": "Transfer"}'
+$ curl -X GET 'http://localhost:8080/transactions?user=john' -H  'accept: application/json'
+```
 
-`$ docker-compose up -d`
+## Tech Stack
 
+[![docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![kotlin](https://img.shields.io/badge/Kotlin-0095D5?&style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org/)
+[![springboot](https://img.shields.io/badge/Spring_Boot-F2F4F9?style=for-the-badge&logo=spring-boot)](https://spring.io/projects/spring-boot)
+[![aws](https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)](https://aws.amazon.com/)
 
-## Testing
+## Reference
 
-1. Create transaction
+- https://github.com/raphaelbh/readme-template
+- https://shields.io/
+- https://github.com/alexandresanlim/Badges4-README.md-Profile
 
-`$ curl -d '{"user":"john", "amount":99.99, "description": "Transfer"}' -H "Content-Type: application/json" -X POST http://localhost:8080/transactions`
+## Feedback
 
-2. Get transactions
+If you have any feedback, please contact me at raphaeldias.ti@gmail.com
 
-`$ curl http://localhost:8080/transactions?user=john -H "Accept: application/json"`
+[![github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/raphaelbh)
+[![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/raphaelbh/)
