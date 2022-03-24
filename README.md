@@ -9,7 +9,6 @@ Hexagonal Architecture PoC
 
 The hexagonal architecture, or ports and adapters architecture, is an architectural pattern used in software design. It aims at creating loosely coupled application components that can be easily connected to their software environment by means of ports and adapters. This makes components exchangeable at any level and facilitates test automation.
 
-https://medium.com/ssense-tech/hexagonal-architecture-there-are-always-two-sides-to-every-story-bc0780ed7d9c
 
 ## Requirements
 
@@ -37,9 +36,7 @@ $ curl -X GET 'http://localhost:8080/transactions?user=john' -H  'accept: applic
 
 ## Reference
 
-- https://github.com/raphaelbh/readme-template
-- https://shields.io/
-- https://github.com/alexandresanlim/Badges4-README.md-Profile
+- https://medium.com/ssense-tech/hexagonal-architecture-there-are-always-two-sides-to-every-story-bc0780ed7d9c
 
 ## Feedback
 
